@@ -31,12 +31,14 @@ def createTeamData(elem):
         counter += 1
     return teamInfo
 
+table_data = {}
+for idx, team in enumerate(all_teams, start=0):
+    table_data[idx+1] = createTeamData(team)
 
 print("***")
 print("***")
 print("***")
-# data = createTeamData(team)
-# print(data)
-# print(all_teams)
-da_data = map(createTeamData, all_teams)
-print(list(da_data))
+print(table_data)
+
+with open('table.txt', 'w') as outfile:
+    json.dump(table_data, outfile, indent=4)
