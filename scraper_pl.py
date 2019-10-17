@@ -6,11 +6,14 @@ from bs4 import BeautifulSoup
 data_page = 'https://www.premierleague.com/tables'
 page = urlopen(data_page)
 soup = BeautifulSoup(page, 'lxml')
+sObject = slice(20)
+all_teams = soup.select('td[scope]')[sObject]
+
 team = soup.select_one('td[scope]')
 
-fields = ["gamesPlayed", "won", 
-    "drawn", "lost", "goalsFor", "goalsAgainst", 
-    "goalDifference", "points"]
+fields = ["gamesPlayed", "won",
+          "drawn", "lost", "goalsFor", "goalsAgainst",
+          "goalDifference", "points"]
 
 def createTeamData(elem):
     counter = 0
@@ -28,7 +31,12 @@ def createTeamData(elem):
         counter += 1
     return teamInfo
 
+
 print("***")
 print("***")
-data = createTeamData(team)
-print(data)
+print("***")
+# data = createTeamData(team)
+# print(data)
+# print(all_teams)
+da_data = map(createTeamData, all_teams)
+print(list(da_data))
