@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 data_page = 'https://www.premierleague.com/tables'
 page = urlopen(data_page)
-soup = BeautifulSoup(page, 'lxml')
+soup = BeautifulSoup(page, 'html.parser')
 sObject = slice(20)
 all_teams = soup.select('td[scope]')[sObject]
 
@@ -31,14 +31,25 @@ def createTeamData(elem):
         counter += 1
     return teamInfo
 
-table_data = {}
-for idx, team in enumerate(all_teams, start=0):
-    table_data[idx+1] = createTeamData(team)
+def generateTableData(teamsHtml):
+    table_data = {}
+    for idx, team in enumerate(teamsHtml, start=0):
+        table_data[idx+1] = createTeamData(team)
+    return table_data
 
-print("***")
-print("***")
-print("***")
-print(table_data)
+table = generateTableData(all_teams)
 
-with open('table.txt', 'w') as outfile:
-    json.dump(table_data, outfile, indent=4)
+# with open('table.txt', 'w') as outfile:
+#     json.dump(table_data, outfile, indent=4)
+
+def lambda_handler(event, context):
+    # TODO implement
+    return {
+        'statusCode': 200,
+        'headers' : {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
+        'body': json.dumps(table)
+    }
