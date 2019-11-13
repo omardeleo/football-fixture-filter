@@ -126,4 +126,4 @@ dmypy.json
 
 __pycache__
 package
-_temporary_cra
+*_temporary_cra
