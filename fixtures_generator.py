@@ -5,10 +5,9 @@ from bs4 import BeautifulSoup
 
 import fixture_vars_global
 
-data_page = 'https://www.worldfootball.net/all_matches/eng-premier-league-2019-2020/'
+data_page = 'https://www.worldfootball.net/all_matches/ned-eredivisie-2019-2020/'
 page = urlopen(data_page)
 soup = BeautifulSoup(page, 'html.parser')
-
 
 def generateFixtureData(table):
     def getAnchorTag(elem):
@@ -42,12 +41,12 @@ def generateFixtureData(table):
     for row in table:
         evaluateRow(row)
     fixture_vars_global.resultObj[fixture_vars_global.matchDate] = fixture_vars_global.matches
-
+        
     return fixture_vars_global.resultObj
 
 dataTable = soup.select('.data > .standard_tabelle')
 allTableRows = dataTable[0].select("tr")
 fixtures = generateFixtureData(allTableRows)
-print(fixtures)
-with open('fixtures_prem.txt', 'w') as outfile:
+
+with open('fixtures_eredivisie.txt', 'w') as outfile:
     json.dump(fixtures, outfile, indent=4)
