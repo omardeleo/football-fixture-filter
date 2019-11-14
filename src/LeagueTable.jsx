@@ -129,11 +129,11 @@ export default function CustomizedTables(props) {
             horizontal: "center"
           }}
         >
-          <h3>
+          <div>
             <div>NEXT MATCH {momentDate}</div>
-            {homeTeam} vs {awayTeam}
-            {newDate}
-          </h3>
+            <h3>{homeTeam} vs {awayTeam}</h3>
+            <div>{newDate}</div>
+          </div>
         </Popover>
       </Table>
     </Paper>
