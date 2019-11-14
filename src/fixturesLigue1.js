@@ -2834,6 +2834,19 @@ function renameTeams(fixture) {
   if (fixture.awayTeam === "Lille OSC") {
     fixture.awayTeam = "Lille";
   }
+  if (fixture.homeTeam === "AS Saint-\u00c9tienne") {
+    fixture.homeTeam = "St Etienne";
+  }
+  if (fixture.awayTeam === "AS Saint-\u00c9tienne") {
+    fixture.awayTeam = "St Etienne";
+  }
+  if (fixture.homeTeam === "Olympique Marseille") {
+    fixture.homeTeam = "Marseille";
+  }
+  if (fixture.awayTeam === "Olympique Marseille") {
+    fixture.awayTeam = "Marseille";
+  }
+
   return fixture;
 }
 

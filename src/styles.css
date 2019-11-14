@@ -1,8 +1,10 @@
 .MuiPopover-paper {
   /* background: pink !important; */
-  max-width: calc(100% - 16px) !important;
-  width: 100% !important;
-  left: 8px !important;
+  max-width: 800px !important;
+  width: calc(100% - 16px) !important;
+  min-width: 320px !important;
+  /* left: 8px !important; */
+  /* margin: auto !important; */
 }
 
 .MuiPopover-root {
@@ -11,4 +13,31 @@
 
 * {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.league-table-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.league-table-header img {
+  height: 33px;
+  margin-right: 10px;
+}
+
+.main {
+  min-width: 320px;
+  /* width: 100%; */
+  max-width: 800px;
+  margin: auto;
+}
+
+.league-table {
+  margin-bottom: 30px;
+}
+
+body {
+  /* display: flex;
+  justify-content: center; */
+  
 }
