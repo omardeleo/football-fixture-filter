@@ -2316,6 +2316,13 @@ function renameTeams(fixture) {
   if (fixture.awayTeam === "FC Schalke 04") {
     fixture.awayTeam = "Schalke";
   }
+  if (fixture.homeTeam === "Bayern M\u00fcnchen") {
+    fixture.homeTeam = "Bayern Munich";
+  }
+  if (fixture.awayTeam === "Bayern M\u00fcnchen") {
+    fixture.awayTeam = "Bayern Munich";
+  }
+  
   return fixture;
 }
 
