@@ -6,7 +6,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Popover from "@material-ui/core/Popover";
-import "./styles.css";
+import "../styles.css";
 import moment from "moment";
 function createData(position, team, gamesPlayed, points) {
   return { position, team, gamesPlayed, points };
