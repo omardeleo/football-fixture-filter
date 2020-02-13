@@ -12,6 +12,11 @@ class LeagueTableContainer extends React.Component {
     };
   }
 
+  // this is hook version of cDM
+  // React.useEffect(() => {
+
+  // }, [])
+
   componentDidMount() {
     fetch(this.props.api)
       .then(res => res.json())
