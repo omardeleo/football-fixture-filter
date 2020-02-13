@@ -7,91 +7,41 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Popover from "@material-ui/core/Popover";
 import "../styles.css";
-import moment from "moment";
-function createData(position, team, gamesPlayed, points) {
-  return { position, team, gamesPlayed, points };
-}
+
+import { getNextMatch, generatePopoverData } from '../assets/js/popoverUtil';
 
 export default function CustomizedTables(props) {
-  const rows = Object.entries(props.teams).map(([pos, team]) => {
-    return createData(pos, team.name, team.gamesPlayed, team.points);
-  });
-  const { tierLimit, fixtures } = props;
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [fixture, setFixture] = React.useState(null);
+
+  const { tierLimit, fixtures, teams } = props;
+
+  const rows = Object.entries(teams).map(([pos, team]) => ({
+    position: pos, 
+    team: team.name, 
+    gamesPlayed: team.gamesPlayed, 
+    points: team.points
+  }));
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
     let club = event.currentTarget.querySelector("td").innerText;
-    getNextMatch(fixtures, club);
+    getNextMatch(fixtures, club, setFixture);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  const checkIfClubPlay = (fixtures, club) => {
-    for (let i = 0; i < fixtures.length; i++) {
-      let fixture = fixtures[i];
-      if (fixture.homeTeam === club || fixture.awayTeam === club) {
-        return fixture;
-      }
-    }
-  };
+  const {
+    id,
+    open,
+    momentDate,
+    homeTeam,
+    awayTeam,
+    newDate
+  } = generatePopoverData(anchorEl, fixture)
 
-  const getNextMatch = (fixtures, club) => {
-    let fixtureDates = Object.keys(fixtures);
-    for (let i = 0; i < fixtureDates.length; i++) {
-      let key = fixtureDates[i];
-      // console.log("key", key);
-      let dateStuff = key.split("/");
-      let newDate = new Date(dateStuff[2], dateStuff[1] - 1, dateStuff[0]);
-      // console.log("newDate", newDate);
-      let today = new Date();
-      today.setHours(0, 0, 0);
-      // console.log("today", today);
-      // console.log("newDate", newDate);
-      // console.log("isEqual?", today.getTime() === newDate.getTime());
-      if (newDate.getTime() >= today.getTime()) {
-        // console.log("stop");
-        let fixta = checkIfClubPlay(fixtures[key], club);
-        if (fixta) {
-          // console.log("fixta", fixta);
-          setFixture(fixta);
-          break;
-        }
-      }
-    }
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
-  const homeTeam = fixture ? fixture.homeTeam : null;
-  const awayTeam = fixture ? fixture.awayTeam : null;
-  const matchDate = fixture ? fixture.date : null;
-  const matchTime = fixture ? fixture.time : null;
-  let timeInfo = matchTime ? matchTime.split(":") : null;
-  let dateStuff = matchDate ? matchDate.split("/") : null;
-  let str = dateStuff ? `${dateStuff[2]}${dateStuff[1]}${dateStuff[0]}` : null;
-  // console.log("matchTime", matchTime);
-  let newDate =
-    dateStuff && timeInfo
-      ? new Date(
-          dateStuff[2],
-          dateStuff[1] - 1,
-          dateStuff[0],
-          timeInfo[0] - 5,
-          timeInfo[1]
-        ).toLocaleString()
-      : null;
-  // console.log("newDate", newDate.toLocaleString());
-  // console.log(newDate);
-  // console.log("newDate", newDate);
-  // console.log(matchDate);
-  // console.log(str);
-  let momentDate = str ? moment(`${str}`, "YYYYMMDD hh:mm").fromNow() : null;
-  // console.log(momentDate);
   return (
     <Paper>
       <Table aria-label="customized table">
