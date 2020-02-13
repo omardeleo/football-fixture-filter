@@ -18,25 +18,25 @@ class LeagueTableContainer extends React.Component {
   // }, [])
 
   componentDidMount() {
-    // fetch(this.props.api)
-    //   .then(res => res.json())
-    //   .then(
-    //     result => {
-    //       this.setState({
-    //         isLoaded: true,
-    //         teams: JSON.parse(result.body)
-    //       });
-    //     },
-    //     // Note: it's important to handle errors here
-    //     // instead of a catch() block so that we don't swallow
-    //     // exceptions from actual bugs in components.
-    //     error => {
-    //       this.setState({
-    //         isLoaded: true,
-    //         error
-    //       });
-    //     }
-    //   );
+    fetch(this.props.api)
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            isLoaded: true,
+            teams: JSON.parse(result.body)
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
   }
 
   render() {
