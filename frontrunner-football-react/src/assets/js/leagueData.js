@@ -27,7 +27,7 @@ const leagueData = {
     leagueName: "Bundesliga",
     imgAlt: "Flag of Germany",
     imgSrc: "http://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
-    standingsApi: leagueAPI["budesliga"],
+    standingsApi: leagueAPI["bundesliga"],
     fixtures: () => bundesligaFixtures,
     tierLimit: 5
   },
