@@ -1,6 +1,7 @@
 import React from "react";
 
 import LeagueTable from "./LeagueTable";
+import { STANDINGS_API_URL } from '../assets/js/leagueApiUtil';
 
 class LeagueTableContainer extends React.Component {
   constructor(props) {
@@ -18,8 +19,8 @@ class LeagueTableContainer extends React.Component {
   // }, [])
 
   componentDidMount() {
-    const url = `https://rocky-bayou-54195.herokuapp.com/leagues/${this.props.api}`
-    
+    const url = `${STANDINGS_API_URL}${this.props.api}`
+
     fetch(url)
       .then(res => res.json())
       .then(
