@@ -18,13 +18,15 @@ class LeagueTableContainer extends React.Component {
   // }, [])
 
   componentDidMount() {
-    fetch(this.props.api)
+    const url = `https://rocky-bayou-54195.herokuapp.com/leagues/${this.props.api}`
+    
+    fetch(url)
       .then(res => res.json())
       .then(
         result => {
           this.setState({
             isLoaded: true,
-            teams: JSON.parse(result.body)
+            teams: result
           });
         },
         // Note: it's important to handle errors here
