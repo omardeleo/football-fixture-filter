@@ -9,7 +9,7 @@ const leagueData = {
   premiereLeague: {
     leagueName: "Premier League",
     imgAlt: "Flag of England",
-    imgSrc: "//upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
+    imgSrc: "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
     standingsApi: "premierLeague",
     fixtures: () => premFixtures,
     tierLimit: 5
@@ -17,7 +17,7 @@ const leagueData = {
   serieA: {
     leagueName: "Serie A",
     imgAlt: "Flag of Italy",
-    imgSrc: "//upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/50px-Flag_of_Italy.svg.png",
+    imgSrc: "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/50px-Flag_of_Italy.svg.png",
     standingsApi: "serieA",
     fixtures: () => serieAFixtures,
     tierLimit: 5
@@ -25,7 +25,7 @@ const leagueData = {
   bundesliga: {
     leagueName: "Bundesliga",
     imgAlt: "Flag of Germany",
-    imgSrc: "http://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+    imgSrc: "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
     standingsApi: "bundesliga",
     fixtures: () => bundesligaFixtures,
     tierLimit: 5
@@ -33,7 +33,7 @@ const leagueData = {
   laLiga: {
     leagueName: "La Liga",
     imgAlt: "Flag of Spain",
-    imgSrc: "http://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/50px-Flag_of_Spain.svg.png",
+    imgSrc: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/50px-Flag_of_Spain.svg.png",
     standingsApi: "laLiga",
     fixtures: () => laLigaFixtures,
     tierLimit: 5
@@ -41,7 +41,7 @@ const leagueData = {
   ligue1: {
     leagueName: "Ligue 1",
     imgAlt: "Flag of France",
-    imgSrc: "http://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+    imgSrc: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
     standingsApi: "ligue1",
     fixtures: () => ligue1Fixtures,
     tierLimit: 5
@@ -49,7 +49,7 @@ const leagueData = {
   eredivisie: {
     leagueName: "Eredivisie",
     imgAlt: "Flag of the Netherlands",
-    imgSrc: "http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/50px-Flag_of_the_Netherlands.svg.png",
+    imgSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/50px-Flag_of_the_Netherlands.svg.png",
     standingsApi: "eredivisie",
     fixtures: () => eredivisieFixtures,
     tierLimit: 5
