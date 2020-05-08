@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import leagues from "../assets/js/leagueData";
 import "../styles.css";
@@ -20,12 +21,26 @@ const tables = Object.values(leagues).map(league => {
 
 function App() {
   return (
-    <div className="main">
-      <h1>
-        Frontrunner Football <span role="img"><span role="img" aria-label="football-trophy">⚽️🏆</span></span>
-      </h1>
-      { tables }
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <div className="main">
+            <h1>
+              Frontrunner Football{" "}
+              <span role="img">
+                <span role="img" aria-label="football-trophy">
+                  ⚽️🏆
+                </span>
+              </span>
+            </h1>
+            {tables}
+          </div>
+        </Route>
+        <Route path="/bundesliga">
+          <div>Bundesliga</div>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
