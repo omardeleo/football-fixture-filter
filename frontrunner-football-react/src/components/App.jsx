@@ -25,7 +25,7 @@ function App() {
         <Route path="/" exact>
           <div className="main">
             <h1>
-              Frontrunner Football{" "}
+              Frontrunner Football!{" "}
               <span role="img">
                 <span role="img" aria-label="football-trophy">
                   ⚽️🏆
