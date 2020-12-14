@@ -1,1 +1,2 @@
-export const STANDINGS_API_URL = "https://omardeleo-ffb-backend-main.dev.shipyard.host/leagues/";
+
+export const STANDINGS_API_URL = "https://frontrunner-football-node.herokuapp.com/leagues/";
