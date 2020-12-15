@@ -152,7 +152,7 @@ export default function App() {
           league
         } = fixture;
         const leagueData = leaguesData[league];
-        let fixtureDate = formatDistanceToNow(subHours(new Date(date), 5));
+        let fixtureDate = formatDistanceToNow(new Date(date));
         fixtureDate = fixtureDate.includes("about")
           ? fixtureDate.slice(6)
           : fixtureDate;
