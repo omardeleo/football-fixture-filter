@@ -142,10 +142,10 @@ export default function App() {
       </h1>
       {fixtures.map((fixture) => {
         const {
-          homeTeamPos,
+          homePos,
           homeTeam,
           awayTeam,
-          awayTeamPos,
+          awayPos,
           date,
           homeAbbr,
           awayAbbr,
@@ -171,26 +171,26 @@ export default function App() {
               <div className={`${classes.teamRank} ${classes.homeTeam}`}>
                 <Typography
                   className={`${classes.homePos} ${
-                    homeTeamPos < 6 ? classes.blue : classes.gray
+                    homePos < 6 ? classes.blue : classes.gray
                   }`}
                 >
-                  {homeTeamPos}
+                  {homePos}
                 </Typography>
                 <Typography title={homeTeam} className={classes.name}>
-                  {homeAbbr}
+                  {homeTeam}
                 </Typography>
               </div>
               <Typography className={classes.versus}>vs</Typography>
               <div className={classes.teamRank}>
                 <Typography title={awayTeam} className={classes.name}>
-                  {awayAbbr}
+                  {awayTeam}
                 </Typography>
                 <Typography
                   className={`${classes.awayPos} ${
-                    awayTeamPos < 6 ? classes.blue : classes.gray
+                    awayPos < 6 ? classes.blue : classes.gray
                   }`}
                 >
-                  {awayTeamPos}
+                  {awayPos}
                 </Typography>
               </div>
             </div>
