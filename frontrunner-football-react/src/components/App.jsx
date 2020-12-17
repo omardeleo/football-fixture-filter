@@ -99,6 +99,12 @@ const useStyles = makeStyles({
     fontFamily: "sans-serif",
     fontSize: "2em",
     color: "white"
+  },
+  badge: {
+    // background: "#111"
+    // "& img": {
+    //   border: "1px solid gray"
+    // }
   }
 });
 
@@ -148,7 +154,9 @@ export default function App() {
           awayPos,
           date,
           homeAbbr,
+          homeBadge,
           awayAbbr,
+          awayBadge,
           league
         } = fixture;
         const leagueData = leaguesData[league];
@@ -179,9 +187,11 @@ export default function App() {
                 <Typography title={homeTeam} className={classes.name}>
                   {homeTeam}
                 </Typography>
+                <div className={classes.badge}><img src={`${homeBadge}&h=30&w=30`} alt={homeTeam}/></div>
               </div>
               <Typography className={classes.versus}>vs</Typography>
               <div className={classes.teamRank}>
+                <div className={classes.badge}><img src={`${awayBadge}&h=30&w=30`} alt={awayTeam}/></div>
                 <Typography title={awayTeam} className={classes.name}>
                   {awayTeam}
                 </Typography>
