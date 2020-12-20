@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     height: "40px"
     // background: "red"
   },
-  homePos: {
+  homeTeamPos: {
     // marginRight: "15px",
     marginTop: "5px",
     minWidth: "25px",
@@ -38,7 +38,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     height: "25px"
   },
-  awayPos: {
+  awayTeamPos: {
     // marginLeft: "15px",
     marginTop: "5px",
     minWidth: "25px",
@@ -114,7 +114,7 @@ export default function App() {
   const [fixtures, setFixtures] = useState([]);
 
   useEffect(() => {
-    fetch("https://frontrunner-football-node.herokuapp.com/fixtures/all")
+    fetch("https://frontrunner-football-node.herokuapp.com/fixtures/")
       .then(res => res.json())
       .then(
         (result) => {
@@ -148,10 +148,10 @@ export default function App() {
       </h1>
       {fixtures.map((fixture) => {
         const {
-          homePos,
+          homeTeamPos,
           homeTeam,
           awayTeam,
-          awayPos,
+          awayTeamPos,
           date,
           homeAbbr,
           homeBadge,
@@ -178,14 +178,14 @@ export default function App() {
               </div>
               <div className={`${classes.teamRank} ${classes.homeTeam}`}>
                 <Typography
-                  className={`${classes.homePos} ${
-                    homePos < 6 ? classes.blue : classes.gray
+                  className={`${classes.homeTeamPos} ${
+                    homeTeamPos < 6 ? classes.blue : classes.gray
                   }`}
                 >
-                  {homePos}
+                  {homeTeamPos}
                 </Typography>
                 <Typography title={homeTeam} className={classes.name}>
-                  {homeTeam}
+                  {homeAbbr}
                 </Typography>
                 <div className={classes.badge}><img src={`${homeBadge}&h=30&w=30`} alt={homeTeam}/></div>
               </div>
@@ -193,14 +193,14 @@ export default function App() {
               <div className={classes.teamRank}>
                 <div className={classes.badge}><img src={`${awayBadge}&h=30&w=30`} alt={awayTeam}/></div>
                 <Typography title={awayTeam} className={classes.name}>
-                  {awayTeam}
+                  {awayAbbr}
                 </Typography>
                 <Typography
-                  className={`${classes.awayPos} ${
-                    awayPos < 6 ? classes.blue : classes.gray
+                  className={`${classes.awayTeamPos} ${
+                    awayTeamPos < 6 ? classes.blue : classes.gray
                   }`}
                 >
-                  {awayPos}
+                  {awayTeamPos}
                 </Typography>
               </div>
             </div>
